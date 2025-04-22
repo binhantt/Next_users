@@ -1,16 +1,16 @@
 <template>
-   <Nabar />
-  <div class="home-page flex flex-col justify-center items-center min-h-screen bg-gray-100">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Chào mừng đến trang chủ</h1>
-    <p class="text-lg text-gray-600">Đây là trang chủ của dự án Nuxt.js của bạn.</p>
-    <!-- Sử dụng component đã import -->
-   
-  </div>
+    <!-- Gọi component MainLayout và đặt Hero và HomeHotDeals bên trong -->
+    <MainLayout>
+        <Hero />
+        <HomeHotDeals />
+    </MainLayout>
 </template>
 
 <script setup>
-// Import component
-import Nabar from '../components/Layout/Nabar.Layout.vue';
+import Hero from '~/components/home/Hero.vue'
+import HomeHotDeals from '~/components/home/HotDeals.vue'
+// Import component MainLayout
+import MainLayout from '~/components/Layout/MainLayout.vue'
 </script>
 
 <style scoped>
