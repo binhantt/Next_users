@@ -1,12 +1,14 @@
 <template>
-  <div class="home-page flex flex-col justify-center items-center min-h-screen bg-gray-100">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Chào mừng đến trang chủ</h1>
-    <p class="text-lg text-gray-600">Đây là trang chủ của dự án Nuxt.js của bạn.</p>
+  <div>
+    <LayoutNabarLayout />
+    <Hero />
+    <HomeHotDeals />
   </div>
 </template>
 
 <script setup>
-// Bạn có thể thêm logic JavaScript ở đây nếu cần
+import Hero from '~/components/home/Hero.vue'
+import HomeHotDeals from '~/components/home/HotDeals.vue'
 </script>
 
 <style scoped>
