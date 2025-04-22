@@ -1,32 +1,48 @@
 <template>
-  <div class="bg-gray-900 py-12 px-4">
-    <h2 class="text-4xl font-extrabold text-center text-orange-500 mb-10 tracking-tight animate-pulse">
-      Khuyến mãi nóng🔥
-    </h2>
-    
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div 
-        v-for="(product, index) in products" 
-        :key="index" 
-        class="bg-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-xl"
-      >
-        <div class="relative">
-          <img 
-            :src="product.image" 
-            :alt="product.name" 
-            class="w-full h-64 object-cover transition-opacity hover:opacity-80"
-          />
-          <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm shadow-md">
-            Sắp hết hàng
-          </span>
-        </div>
-        <div class="p-4">
-          <h3 class="font-semibold text-lg mb-2 text-gray-800 hover:text-orange-500 transition-colors">
-            {{ product.name }}
-          </h3>
-          <p class="text-orange-500 font-bold text-xl">
-            ₫{{ product.price }}
-          </p>
+  <div class="bg-gradient-to-b from-gray-900 to-gray-800 py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 mb-4">
+          Khuyến Mãi Nóng 🔥
+        </h2>
+        <p class="text-gray-400 text-lg">Những ưu đãi tốt nhất dành cho bạn</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div 
+          v-for="(product, index) in products" 
+          :key="index" 
+          class="group bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl hover:shadow-orange-500/20 transition-all duration-300"
+        >
+          <div class="relative overflow-hidden">
+            <img 
+              :src="product.image"  
+              :alt="product.name" 
+              class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute top-0 right-0 m-4">
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-red-500/90 backdrop-blur-sm text-white text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Sắp hết hàng
+              </span>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2 text-white group-hover:text-orange-400 transition-colors duration-300">
+              {{ product.name }}
+            </h3>
+            <div class="flex items-center justify-between">
+              <p class="text-orange-400 font-bold text-2xl">
+                ₫{{ product.price }}
+              </p>
+              <button class="px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25">
+                Mua ngay
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,5 +75,13 @@ const products = [
 </script>
 
 <style scoped>
-/* Styles được xử lý bởi Tailwind CSS */
+/* Add smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add custom hover effect for product cards */
+.group:hover {
+  transform: translateY(-5px);
+}
 </style>
