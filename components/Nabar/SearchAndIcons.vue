@@ -23,16 +23,77 @@
     </button>
 
     <!-- User -->
-    <button class="p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
-    </button>
+    <div class="relative">
+      <button 
+        @click="toggleUserMenu"
+        class="flex items-center space-x-1 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+      >
+        <div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+          <span v-if="isLoggedIn" class="text-sm font-medium text-indigo-600 dark:text-indigo-300">{{ userInitials }}</span>
+          <svg v-else class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Dropdown menu -->
+      <div 
+        v-if="showUserMenu"
+        class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50"
+      >
+        <NuxtLink 
+          v-if="isLoggedIn"
+          to="/profile" 
+          class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          Trang cá nhân
+        </NuxtLink>
+        <button 
+          v-if="isLoggedIn"
+          @click="logout"
+          class="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          Đăng xuất
+        </button>
+        <button 
+          v-else
+          @click="login"
+          class="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          Đăng nhập
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-// Add any required functionality here
+import { ref, computed } from 'vue';
+
+const isLoggedIn = ref(false);
+const user = ref({ name: 'Nguyễn Văn A' });
+const showUserMenu = ref(false);
+
+const userInitials = computed(() => {
+  if (!user.value.name) return '';
+  const names = user.value.name.split(' ');
+  return names[0].charAt(0) + (names.length > 1 ? names[names.length - 1].charAt(0) : '');
+});
+
+const toggleUserMenu = () => {
+  showUserMenu.value = !showUserMenu.value;
+};
+
+const login = () => {
+  // Xử lý đăng nhập
+  navigateTo('/login');
+};
+
+const logout = () => {
+  // Xử lý đăng xuất
+  isLoggedIn.value = false;
+  showUserMenu.value = false;
+};
 </script>
 
 <style scoped>

@@ -24,11 +24,20 @@ interface _GlobalComponents {
     'NabarMainMenu': typeof import("../components/Nabar/MainMenu.vue")['default']
     'NabarMobileMenu': typeof import("../components/Nabar/MobileMenu.vue")['default']
     'NabarSearchAndIcons': typeof import("../components/Nabar/SearchAndIcons.vue")['default']
+    'ProductDetailProductDetails': typeof import("../components/ProductDetail/ProductDetails.vue")['default']
+    'ProductDetailProductHeader': typeof import("../components/ProductDetail/ProductHeader.vue")['default']
+    'ProductDetailProductReviews': typeof import("../components/ProductDetail/ProductReviews.vue")['default']
+    'ProfileAccountInfo': typeof import("../components/Profile/ProfileAccountInfo.vue")['default']
+    'ProfileHeader': typeof import("../components/Profile/ProfileHeader.vue")['default']
+    'ProfileOrders': typeof import("../components/Profile/ProfileOrders.vue")['default']
+    'ProfileWishlist': typeof import("../components/Profile/ProfileWishlist.vue")['default']
     'RegisterStep1': typeof import("../components/Register/RegisterStep1.vue")['default']
     'RegisterStep2': typeof import("../components/Register/RegisterStep2.vue")['default']
     'HomeBestSellers': typeof import("../components/home/BestSellers.vue")['default']
     'HomeHero': typeof import("../components/home/Hero.vue")['default']
     'HomeHotDeals': typeof import("../components/home/HotDeals.vue")['default']
+    'HomeProductCategories': typeof import("../components/home/ProductCategories.vue")['default']
+    'HomeProductList': typeof import("../components/home/ProductList.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -64,11 +73,20 @@ interface _GlobalComponents {
     'LazyNabarMainMenu': LazyComponent<typeof import("../components/Nabar/MainMenu.vue")['default']>
     'LazyNabarMobileMenu': LazyComponent<typeof import("../components/Nabar/MobileMenu.vue")['default']>
     'LazyNabarSearchAndIcons': LazyComponent<typeof import("../components/Nabar/SearchAndIcons.vue")['default']>
+    'LazyProductDetailProductDetails': LazyComponent<typeof import("../components/ProductDetail/ProductDetails.vue")['default']>
+    'LazyProductDetailProductHeader': LazyComponent<typeof import("../components/ProductDetail/ProductHeader.vue")['default']>
+    'LazyProductDetailProductReviews': LazyComponent<typeof import("../components/ProductDetail/ProductReviews.vue")['default']>
+    'LazyProfileAccountInfo': LazyComponent<typeof import("../components/Profile/ProfileAccountInfo.vue")['default']>
+    'LazyProfileHeader': LazyComponent<typeof import("../components/Profile/ProfileHeader.vue")['default']>
+    'LazyProfileOrders': LazyComponent<typeof import("../components/Profile/ProfileOrders.vue")['default']>
+    'LazyProfileWishlist': LazyComponent<typeof import("../components/Profile/ProfileWishlist.vue")['default']>
     'LazyRegisterStep1': LazyComponent<typeof import("../components/Register/RegisterStep1.vue")['default']>
     'LazyRegisterStep2': LazyComponent<typeof import("../components/Register/RegisterStep2.vue")['default']>
     'LazyHomeBestSellers': LazyComponent<typeof import("../components/home/BestSellers.vue")['default']>
     'LazyHomeHero': LazyComponent<typeof import("../components/home/Hero.vue")['default']>
     'LazyHomeHotDeals': LazyComponent<typeof import("../components/home/HotDeals.vue")['default']>
+    'LazyHomeProductCategories': LazyComponent<typeof import("../components/home/ProductCategories.vue")['default']>
+    'LazyHomeProductList': LazyComponent<typeof import("../components/home/ProductList.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
     'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']>
@@ -110,11 +128,20 @@ export const NabarLogo: typeof import("../components/Nabar/Logo.vue")['default']
 export const NabarMainMenu: typeof import("../components/Nabar/MainMenu.vue")['default']
 export const NabarMobileMenu: typeof import("../components/Nabar/MobileMenu.vue")['default']
 export const NabarSearchAndIcons: typeof import("../components/Nabar/SearchAndIcons.vue")['default']
+export const ProductDetailProductDetails: typeof import("../components/ProductDetail/ProductDetails.vue")['default']
+export const ProductDetailProductHeader: typeof import("../components/ProductDetail/ProductHeader.vue")['default']
+export const ProductDetailProductReviews: typeof import("../components/ProductDetail/ProductReviews.vue")['default']
+export const ProfileAccountInfo: typeof import("../components/Profile/ProfileAccountInfo.vue")['default']
+export const ProfileHeader: typeof import("../components/Profile/ProfileHeader.vue")['default']
+export const ProfileOrders: typeof import("../components/Profile/ProfileOrders.vue")['default']
+export const ProfileWishlist: typeof import("../components/Profile/ProfileWishlist.vue")['default']
 export const RegisterStep1: typeof import("../components/Register/RegisterStep1.vue")['default']
 export const RegisterStep2: typeof import("../components/Register/RegisterStep2.vue")['default']
 export const HomeBestSellers: typeof import("../components/home/BestSellers.vue")['default']
 export const HomeHero: typeof import("../components/home/Hero.vue")['default']
 export const HomeHotDeals: typeof import("../components/home/HotDeals.vue")['default']
+export const HomeProductCategories: typeof import("../components/home/ProductCategories.vue")['default']
+export const HomeProductList: typeof import("../components/home/ProductList.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -150,11 +177,20 @@ export const LazyNabarLogo: LazyComponent<typeof import("../components/Nabar/Log
 export const LazyNabarMainMenu: LazyComponent<typeof import("../components/Nabar/MainMenu.vue")['default']>
 export const LazyNabarMobileMenu: LazyComponent<typeof import("../components/Nabar/MobileMenu.vue")['default']>
 export const LazyNabarSearchAndIcons: LazyComponent<typeof import("../components/Nabar/SearchAndIcons.vue")['default']>
+export const LazyProductDetailProductDetails: LazyComponent<typeof import("../components/ProductDetail/ProductDetails.vue")['default']>
+export const LazyProductDetailProductHeader: LazyComponent<typeof import("../components/ProductDetail/ProductHeader.vue")['default']>
+export const LazyProductDetailProductReviews: LazyComponent<typeof import("../components/ProductDetail/ProductReviews.vue")['default']>
+export const LazyProfileAccountInfo: LazyComponent<typeof import("../components/Profile/ProfileAccountInfo.vue")['default']>
+export const LazyProfileHeader: LazyComponent<typeof import("../components/Profile/ProfileHeader.vue")['default']>
+export const LazyProfileOrders: LazyComponent<typeof import("../components/Profile/ProfileOrders.vue")['default']>
+export const LazyProfileWishlist: LazyComponent<typeof import("../components/Profile/ProfileWishlist.vue")['default']>
 export const LazyRegisterStep1: LazyComponent<typeof import("../components/Register/RegisterStep1.vue")['default']>
 export const LazyRegisterStep2: LazyComponent<typeof import("../components/Register/RegisterStep2.vue")['default']>
 export const LazyHomeBestSellers: LazyComponent<typeof import("../components/home/BestSellers.vue")['default']>
 export const LazyHomeHero: LazyComponent<typeof import("../components/home/Hero.vue")['default']>
 export const LazyHomeHotDeals: LazyComponent<typeof import("../components/home/HotDeals.vue")['default']>
+export const LazyHomeProductCategories: LazyComponent<typeof import("../components/home/ProductCategories.vue")['default']>
+export const LazyHomeProductList: LazyComponent<typeof import("../components/home/ProductList.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']>
