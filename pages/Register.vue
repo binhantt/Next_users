@@ -3,6 +3,7 @@
     <div class="register-page flex flex-col justify-center items-center min-h-screen bg-white dark:bg-gray-900 transition duration-300 ease-in-out">
       <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 mb-8 animate-pulse">Đăng ký</h1>
       <div class="bg-gray-100 dark:bg-gray-800 p-8 rounded-3xl shadow-2xl w-full max-w-md space-y-6 transition duration-300 ease-in-out hover:shadow-4xl">
+        <img :src="i" alt="">
         <RegisterStep1 
           v-if="step === 1"
           :fullname="fullname"
@@ -15,7 +16,7 @@
           :password="password"
           :confirmPassword="confirmPassword"
           @prev-step="step = 1"
-          @register="handleRegister"
+          @register="(captcha) => handleRegister(captcha)"
         />
       </div>
       <!-- Thêm liên kết quay lại trang đăng nhập -->
@@ -28,6 +29,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import MainLayout from '~/components/Layout/MainLayout.vue';
 import RegisterStep1 from '~/components/Register/RegisterStep1.vue';
 import RegisterStep2 from '~/components/Register/RegisterStep2.vue';
@@ -39,14 +41,6 @@ const password = ref('');
 const confirmPassword = ref('');
 const step = ref(1);
 
-const handleRegister = () => {
-  if (password.value !== confirmPassword.value) {
-    console.error('Mật khẩu và xác nhận mật khẩu không khớp');
-    return;
-  }
-  // Thêm logic đăng ký ở đây
-  console.log('Đăng ký với họ và tên:', fullname.value, 'email:', email.value, 'tên đăng nhập:', username.value, 'mật khẩu:', password.value);
-};
 </script>
 
 <style scoped>

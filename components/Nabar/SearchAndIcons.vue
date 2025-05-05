@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center space-x-6">
-    <!-- Search -->
-    <div class="relative">
+  <div class="flex items-center space-x-2 md:space-x-6">
+    <!-- Search - Ẩn trên mobile -->
+    <div class="hidden md:block relative">
       <input
         type="text"
         placeholder="Tìm kiếm..."
@@ -15,18 +15,18 @@
     </div>
 
     <!-- Cart -->
-    <button class="relative p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+    <button class="p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
       <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
       </svg>
-      <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-indigo-600 rounded-full">2</span>
+     
     </button>
 
     <!-- User -->
     <div class="relative">
       <button 
         @click="toggleUserMenu"
-        class="flex items-center space-x-1 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        class="flex items-center p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
       >
         <div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
           <span v-if="isLoggedIn" class="text-sm font-medium text-indigo-600 dark:text-indigo-300">{{ userInitials }}</span>
@@ -36,31 +36,41 @@
         </div>
       </button>
 
-      <!-- Dropdown menu -->
+      <!-- Dropdown menu - Tối ưu cho mobile -->
       <div 
         v-if="showUserMenu"
-        class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50"
+        class="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-xl py-2 z-50 border border-gray-200 dark:border-gray-700"
       >
         <NuxtLink 
           v-if="isLoggedIn"
           to="/profile" 
-          class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          class="block px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          @click="toggleUserMenu"
         >
-          Trang cá nhân
+          <div class="flex items-center">
+            <UserCircleIcon class="h-5 w-5 mr-2 text-gray-500" />
+            Trang cá nhân
+          </div>
         </NuxtLink>
         <button 
           v-if="isLoggedIn"
           @click="logout"
-          class="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          class="block w-full text-left px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         >
-          Đăng xuất
+          <div class="flex items-center">
+            <ArrowLeftOnRectangleIcon class="h-5 w-5 mr-2 text-gray-500" />
+            Đăng xuất
+          </div>
         </button>
         <button 
           v-else
           @click="login"
-          class="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          class="block w-full text-left px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         >
-          Đăng nhập
+          <div class="flex items-center">
+            <ArrowRightOnRectangleIcon class="h-5 w-5 mr-2 text-gray-500" />
+            Đăng nhập
+          </div>
         </button>
       </div>
     </div>
@@ -97,5 +107,5 @@ const logout = () => {
 </script>
 
 <style scoped>
-/* Các styles cho thanh tìm kiếm và icons */
+/* Thêm responsive styles nếu cần */
 </style>

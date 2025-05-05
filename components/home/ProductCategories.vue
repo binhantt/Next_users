@@ -22,10 +22,20 @@
 </template>
 
 <script setup>
-import { useCategories } from '~/config/useCategories';
-const { categories } = useCategories();
-</script>
+import { useCategoriesStore } from '~/store/categories';
+import { computed, onMounted, ref } from 'vue';
 
-<style scoped>
-/* Bạn có thể để phần này trống nếu sử dụng Tailwind CSS */
-</style>
+const categoriesStore = useCategoriesStore();
+const isLoading = ref(true);
+const categories = computed(() => categoriesStore.items);
+
+onMounted(async () => {
+  try {
+    await categoriesStore.fetchCategories();
+  } catch (error) {
+    console.error('Error loading categories:', error);
+  } finally {
+    isLoading.value = false;
+  }
+});
+</script>
