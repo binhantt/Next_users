@@ -8,6 +8,12 @@
           v-if="step === 1"
           :fullname="fullname"
           :email="email"
+          :phone="phone"
+          :address="address"
+          @update:fullname="(value) => fullname = value"
+          @update:email="(value) => email = value" 
+          @update:phone="(value) => phone = value"
+          @update:address="(value) => address = value"
           @next-step="step = 2"
         />
         <RegisterStep2 
@@ -15,8 +21,12 @@
           :username="username"
           :password="password"
           :confirmPassword="confirmPassword"
+          @update:username="(value) => username = value"
+          @update:password="(value) => password = value"
+          @vue:updated="(value) => captchainput = value"
+          @update:confirmPassword="(value) => confirmPassword = value"
           @prev-step="step = 1"
-          @register="(captcha) => handleRegister(captcha)"
+          @register="(captchaInput) => handleRegister(captchaInput)"
         />
       </div>
       <!-- Thêm liên kết quay lại trang đăng nhập -->
@@ -29,18 +39,38 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRegisterStore } from '~/store/register';
+import { useCaptchaStore } from '~/store/capcha';
 
-import MainLayout from '~/components/Layout/MainLayout.vue';
-import RegisterStep1 from '~/components/Register/RegisterStep1.vue';
-import RegisterStep2 from '~/components/Register/RegisterStep2.vue';
-
+const step = ref(1);
 const fullname = ref('');
 const email = ref('');
 const username = ref('');
 const password = ref('');
 const confirmPassword = ref('');
-const step = ref(1);
-
+const phone = ref('');
+const address = ref('');
+const captchainput = ref('');   
+const handleRegister = async ({captcha, captchaId}) => {
+  try {
+    const registerStore = useRegisterStore();
+    
+    await registerStore.registerUser({
+      email: email.value,
+      password: password.value,
+      name: fullname.value,
+      username: username.value,
+      phone: phone.value,
+      address: address.value,
+      captcha,
+      captchaId
+    });
+  
+    navigateTo('/');
+  } catch (error) {
+    console.error('Registration failed:', error);
+  }
+};
 </script>
 
 <style scoped>
