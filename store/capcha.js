@@ -1,14 +1,9 @@
 import { defineStore } from 'pinia';
 import api from '~/config/Api';
 
-interface CaptchaData {
-  id: string;
-  image: string;
-}
-
 export const useCaptchaStore = defineStore('captcha', {
   state: () => ({
-    data: null as CaptchaData | null
+    data: null
   }),
   actions: {
     async fetchCaptcha() {
@@ -22,7 +17,7 @@ export const useCaptchaStore = defineStore('captcha', {
         throw error;
       }
     },
-    verifyCaptcha(input: string) {
+    verifyCaptcha(input) {
       if (!this.data) return false;
       return { captchaId: this.data.id, input };
     }
