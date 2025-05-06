@@ -29,10 +29,12 @@
         class="flex items-center p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
       >
         <div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
-          <span v-if="isLoggedIn" class="text-sm font-medium text-indigo-600 dark:text-indigo-300">{{ userInitials }}</span>
-          <svg v-else class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
+          <span v-if="authStore.user" class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
+            {{ userInitials }}
+          </span>
+          <span v-else class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
+            Đăng nhập
+          </span>
         </div>
       </button>
 
@@ -43,7 +45,7 @@
       >
         <NuxtLink 
           v-if="isLoggedIn"
-          :to="`/personal/${authStore.user?.username}`"
+          :to="`/personal/${authStore.user?.data.user.name|| ''}`"
           class="block px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           @click="toggleUserMenu"
         >
@@ -89,14 +91,14 @@ import { useAuthStore } from '~/store/auth';
 
 const authStore = useAuthStore();
 const showUserMenu = ref(false);
-
-const isLoggedIn = computed(() => authStore.isAuthenticated);
+// Remove this line: console.log(authStore.user.data.user) 
+const isLoggedIn = computed(() => authStore.user !== null)
 
 const userInitials = computed(() => {
-  if (!authStore.user?.name) return '';
-  const names = authStore.user.name.split(' ');
-  return names[0].charAt(0) + (names.length > 1 ? names[names.length - 1].charAt(0) : '');
-});
+  if (!authStore.user?.data.user.name) return ''
+  const names = authStore.user?.data.user.name.split(' ')
+  return names[0].charAt(0) + (names.length > 1 ? names[names.length - 1].charAt(0) : '')
+})
 
 const toggleUserMenu = () => {
   showUserMenu.value = !showUserMenu.value;

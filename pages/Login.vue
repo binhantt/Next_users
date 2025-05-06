@@ -39,8 +39,9 @@ const handleLogin = async () => {
       email: username.value,
       password: password.value
     };
-    await authStore.login(credentials);
-    localStorage.setItem('user', JSON.stringify(credentials));
+    const a =  await authStore.login(credentials);
+    await localStorage.setItem('user', JSON.stringify(a));
+
     navigateTo('/');
   } catch (error) {
     console.error('Login failed:', error);

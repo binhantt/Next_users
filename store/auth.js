@@ -10,6 +10,7 @@ export const useAuthStore = defineStore('auth', {
       id: null,
       email: '',
       name: '',
+      password: '',
       phone: '',
       address: '',
       balance: '0.00',
@@ -20,16 +21,17 @@ export const useAuthStore = defineStore('auth', {
     isAuthenticated: false,
     token: null
   }),
-  actions: {
-    initialize() {
+ actions: {
+     initialize() {
       if (!isClient) return
       
       try {
         
         const userData = localStorage.getItem('user')
-        this.user = userData ? JSON.parse(userData) : null
-        this.isAuthenticated = !!this.token
+        console.log(this.user)
         this.token = localStorage.getItem('authToken')
+        this.isAuthenticated = !!this.token
+        this.user = userData ? JSON.parse(userData) : null
         if (this.isAuthenticated) {
           const router = useRouter()
           if (router.currentRoute.value.path === '/login') {
@@ -62,17 +64,19 @@ export const useAuthStore = defineStore('auth', {
 
         if (!response.ok) throw new Error('Đăng nhập thất bại')
 
-        const data = await response.json().data.user
-
-        this.user = data // Thay đổi từ data.user thành data.data.user
+        const responseData = await response.json()
+        const { data } = responseData
+         console.log('Login response:', responseData) // Log the entire response for debugging
+        // Chỉ lưu sau khi đã xác nhận response hợp lệ
+        this.user = data.user
         this.isAuthenticated = true
-        this.token = data.data.token
+        this.token = data.token
         
         if (isClient) {
           localStorage.setItem('authToken', data.token)
           localStorage.setItem('user', JSON.stringify(data.user))
         }
-        return data
+        return responseData
       } catch (error) {
         console.error('Login error:', error)
         throw error
@@ -94,7 +98,18 @@ export const useAuthStore = defineStore('auth', {
           throw new Error(errorData.message || 'Đăng ký thất bại');
         }
         const data = await response.json()
-        this.user = data.user
+        this.user = {
+          id: data.user.id,
+          email: data.user.email,
+          name: data.user.name,
+          phone: data.user.phone,
+          address: data.user.address,
+          balance: data.user.balance,
+          is_active: data.user.is_active,
+          created_at: data.user.created_at,
+          updated_at: data.user.updated_at
+        }
+        console.log(this.user);
         this.isAuthenticated = true
         this.token = data.token
         if (isClient) {
