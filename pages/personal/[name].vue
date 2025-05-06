@@ -1,4 +1,5 @@
 <template>
+  <MainLayout>
   <div class="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
       <div class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
@@ -46,11 +47,12 @@
       </div>
     </div>
   </div>
+  </MainLayout>
 </template>
 
 <script setup>
 import { useAuthStore } from '~/store/auth';
-
+import MainLayout from '~/components/Layout/MainLayout.vue';
 const authStore = useAuthStore();
 const route = useRoute();
 
