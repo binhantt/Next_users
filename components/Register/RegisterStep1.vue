@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   fullname: {
     type: String,
     required: true
@@ -64,10 +64,21 @@ defineProps({
   email: {
     type: String,
     required: true
-  }
+  },
+  phone: String,
+  address: String,
+  error: String
 });
 
-defineEmits(['next-step', 'update:fullname', 'update:email', 'update:phone', 'update:address']);
+const emit = defineEmits(['next-step', 'update:fullname', 'update:email', 'update:phone', 'update:address']);
+
+const validateAndNext = () => {
+  if (!props.fullname || !props.email) {
+    emit('update:error', 'Vui lòng điền đầy đủ thông tin bắt buộc');
+    return;
+  }
+  emit('next-step');
+};
 </script>
 
 <style scoped>

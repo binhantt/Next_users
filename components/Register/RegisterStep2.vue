@@ -79,16 +79,30 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useCaptchaStore } from '~/store/capcha';
+
+const props = defineProps({
+  username: String,
+  password: String,
+  confirmPassword: String
+});
 
 const captchaStore = useCaptchaStore();
 const captchaInput = ref('');
-const emit = defineEmits(['update:captchaInput', 'prev-step', 'register']);
+const emit = defineEmits(['update:captchaInput', 'prev-step', 'register', 'update:username', 'update:password', 'update:confirmPassword']);
 
 const handleSubmit = () => {
   if (!captchaInput.value) {
     alert('Vui lòng nhập captcha');
+    return;
+  }
+  if (!props.password || !props.confirmPassword) {
+    alert('Vui lòng nhập mật khẩu và xác nhận mật khẩu');
+    return;
+  }
+  if (props.password !== props.confirmPassword) {
+    alert('Mật khẩu xác nhận không khớp');
     return;
   }
   emit('register', {

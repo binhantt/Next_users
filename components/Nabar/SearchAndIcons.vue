@@ -79,14 +79,16 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useAuthStore } from '~/store/auth'; // Updated import path
 
-const isLoggedIn = ref(false);
-const user = ref({ name: 'Nguyễn Văn A' });
+const authStore = useAuthStore();
 const showUserMenu = ref(false);
 
+const isLoggedIn = computed(() => authStore.isAuthenticated);
+
 const userInitials = computed(() => {
-  if (!user.value.name) return '';
-  const names = user.value.name.split(' ');
+  if (!authStore.user?.name) return '';
+  const names = authStore.user.name.split(' ');
   return names[0].charAt(0) + (names.length > 1 ? names[names.length - 1].charAt(0) : '');
 });
 
@@ -95,17 +97,11 @@ const toggleUserMenu = () => {
 };
 
 const login = () => {
-  // Xử lý đăng nhập
   navigateTo('/login');
 };
 
 const logout = () => {
-  // Xử lý đăng xuất
-  isLoggedIn.value = false;
+  authStore.logout();
   showUserMenu.value = false;
 };
 </script>
-
-<style scoped>
-/* Thêm responsive styles nếu cần */
-</style>

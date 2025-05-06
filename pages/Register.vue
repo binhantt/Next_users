@@ -23,7 +23,7 @@
           :confirmPassword="confirmPassword"
           @update:username="(value) => username = value"
           @update:password="(value) => password = value"
-          @vue:updated="(value) => captchainput = value"
+          @update:captchaInput="(value) => captchainput = value"
           @update:confirmPassword="(value) => confirmPassword = value"
           @prev-step="step = 1"
           @register="(captchaInput) => handleRegister(captchaInput)"
@@ -39,7 +39,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useRegisterStore } from '~/store/register';
+import { useAuthStore } from '~/store/auth';
 import { useCaptchaStore } from '~/store/capcha';
 
 const step = ref(1);
@@ -50,12 +50,13 @@ const password = ref('');
 const confirmPassword = ref('');
 const phone = ref('');
 const address = ref('');
-const captchainput = ref('');   
+const captchaInput = ref('');   // Sửa từ captchainput -> captchaInput
+
 const handleRegister = async ({captcha, captchaId}) => {
   try {
-    const registerStore = useRegisterStore();
+    const authStore = useAuthStore();
     
-    await registerStore.registerUser({
+    await authStore.register({
       email: email.value,
       password: password.value,
       name: fullname.value,
@@ -65,7 +66,7 @@ const handleRegister = async ({captcha, captchaId}) => {
       captcha,
       captchaId
     });
-  
+
     navigateTo('/');
   } catch (error) {
     console.error('Registration failed:', error);
