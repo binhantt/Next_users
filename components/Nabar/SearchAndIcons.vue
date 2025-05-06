@@ -43,12 +43,14 @@
       >
         <NuxtLink 
           v-if="isLoggedIn"
-          to="/profile" 
+          :to="`/profile/${authStore.user?.username}`"
           class="block px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           @click="toggleUserMenu"
         >
           <div class="flex items-center">
-            <UserCircleIcon class="h-5 w-5 mr-2 text-gray-500" />
+            <svg class="h-5 w-5 mr-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
             Trang cá nhân
           </div>
         </NuxtLink>
@@ -58,7 +60,9 @@
           class="block w-full text-left px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         >
           <div class="flex items-center">
-            <ArrowLeftOnRectangleIcon class="h-5 w-5 mr-2 text-gray-500" />
+            <svg class="h-5 w-5 mr-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
             Đăng xuất
           </div>
         </button>
@@ -68,7 +72,9 @@
           class="block w-full text-left px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         >
           <div class="flex items-center">
-            <ArrowRightOnRectangleIcon class="h-5 w-5 mr-2 text-gray-500" />
+            <svg class="h-5 w-5 mr-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+            </svg>
             Đăng nhập
           </div>
         </button>
@@ -79,7 +85,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useAuthStore } from '~/store/auth'; // Updated import path
+import { useAuthStore } from '~/store/auth';
 
 const authStore = useAuthStore();
 const showUserMenu = ref(false);
