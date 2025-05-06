@@ -56,23 +56,27 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/autoplay'
 import 'swiper/css/navigation'  // Thêm CSS navigation
 
-const slides = computed(() => {
-  return productStore.products.map(product => ({
-    image_url: product.image_url,
-    title: product.title,
-    subtitle: product.subtitle, 
-    button1_text: product.button1_text,
-    button1_link: product.button1_link,
-    button2_text: product.button2_text,
-    button2_link: product.button2_link
-  }))
-})
 import { useProductIntroStore } from '~/store/productIntro'
 
 const productStore = useProductIntroStore()
 
 onMounted(async () => {
   await productStore.fetchProductIntro()
+})
+
+const slides = computed(() => {
+  if (!productStore.products || !Array.isArray(productStore.products)) {
+    return []
+  }
+  return productStore.products.map(product => ({
+    image_url: product?.image_url || '',
+    title: product?.title || 'New Arrivals Big Sale',
+    subtitle: product?.subtitle || '', 
+    button1_text: product?.button1_text || 'Shop Now',
+    button1_link: product?.button1_link || '/products',
+    button2_text: product?.button2_text || 'Xem Thêm',
+    button2_link: product?.button2_link || '/promotions'
+  }))
 })
 </script>
 
