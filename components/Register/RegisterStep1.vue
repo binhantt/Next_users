@@ -9,6 +9,7 @@
         @input="$emit('update:fullname', $event.target.value)" 
         class="w-full px-4 py-3 border border-transparent rounded-lg focus:outline-none focus:border-blue-500 bg-white dark:bg-gray-700 dark:text-white transition duration-300 ease-in-out" 
         placeholder="Nhập họ và tên của bạn" 
+        required
       />
     </div>
     <div>
@@ -19,7 +20,32 @@
         :value="email" 
         @input="$emit('update:email', $event.target.value)" 
         class="w-full px-4 py-3 border border-transparent rounded-lg focus:outline-none focus:border-blue-500 bg-white dark:bg-gray-700 dark:text-white transition duration-300 ease-in-out" 
-        placeholder="Nhập email của bạn" 
+        placeholder="Nhập email của bạn"
+        required
+        pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+      />
+      <p class="text-red-500 text-sm mt-1" v-if="error">{{ error }}</p>
+    </div>
+    <div>
+      <label for="phone" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2 tracking-wide">Số điện thoại:</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        :value="phone" 
+        @input="$emit('update:phone', $event.target.value)" 
+        class="w-full px-4 py-3 border border-transparent rounded-lg focus:outline-none focus:border-blue-500 bg-white dark:bg-gray-700 dark:text-white transition duration-300 ease-in-out" 
+        placeholder="Nhập số điện thoại"
+      />
+    </div>
+    <div>
+      <label for="address" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2 tracking-wide">Địa chỉ:</label>
+      <input 
+        type="text" 
+        id="address" 
+        :value="address" 
+        @input="$emit('update:address', $event.target.value)" 
+        class="w-full px-4 py-3 border border-transparent rounded-lg focus:outline-none focus:border-blue-500 bg-white dark:bg-gray-700 dark:text-white transition duration-300 ease-in-out" 
+        placeholder="Nhập địa chỉ"
       />
     </div>
     <!-- Thêm lớp mt-6 để tạo khoảng cách phía trên nút -->
@@ -30,7 +56,7 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   fullname: {
     type: String,
     required: true
@@ -38,10 +64,21 @@ defineProps({
   email: {
     type: String,
     required: true
-  }
+  },
+  phone: String,
+  address: String,
+  error: String
 });
 
-defineEmits(['next-step', 'update:fullname', 'update:email']);
+const emit = defineEmits(['next-step', 'update:fullname', 'update:email', 'update:phone', 'update:address']);
+
+const validateAndNext = () => {
+  if (!props.fullname || !props.email) {
+    emit('update:error', 'Vui lòng điền đầy đủ thông tin bắt buộc');
+    return;
+  }
+  emit('next-step');
+};
 </script>
 
 <style scoped>

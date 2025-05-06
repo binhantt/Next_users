@@ -27,12 +27,23 @@
 <script setup>
 import { ref } from 'vue';
 import MainLayout from '~/components/Layout/MainLayout.vue';
+import { useAuthStore } from '~/store/auth';
 
 const username = ref('');
 const password = ref('');
+const authStore = useAuthStore();
 
-const handleLogin = () => {
-  console.log('Đăng nhập với tên:', username.value, 'và mật khẩu:', password.value);
+const handleLogin = async () => {
+  try {
+    const credentials = {
+      email: username.value,
+      password: password.value
+    };
+    await authStore.login(credentials);
+    navigateTo('/');
+  } catch (error) {
+    console.error('Login failed:', error);
+  }
 };
 </script>
 

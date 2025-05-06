@@ -11,7 +11,7 @@
         >
           <div class="flex flex-col items-center">
             <div class="w-16 h-16 mb-4 bg-blue-50 dark:bg-gray-700 rounded-full flex items-center justify-center">
-              <img :src="category.icon" :alt="category.name" class="w-8 h-8 object-contain">
+              <img :src="category.image" :alt="category.name" class="w-8 h-8 object-contain">
             </div>
             <span class="text-base font-semibold text-center text-gray-800 dark:text-gray-100">{{ category.name }}</span>
           </div>
@@ -22,10 +22,20 @@
 </template>
 
 <script setup>
-import { useCategories } from '~/config/useCategories';
-const { categories } = useCategories();
-</script>
+import { useCategoriesStore } from '~/store/categories';
+import { computed, onMounted, ref } from 'vue';
 
-<style scoped>
-/* Bạn có thể để phần này trống nếu sử dụng Tailwind CSS */
-</style>
+const categoriesStore = useCategoriesStore();
+const isLoading = ref(true);
+const categories = computed(() => categoriesStore.items);
+
+onMounted(async () => {
+  try {
+    await categoriesStore.fetchCategories();
+  } catch (error) {
+    console.error('Error loading categories:', error);
+  } finally {
+    isLoading.value = false;
+  }
+});
+</script>
