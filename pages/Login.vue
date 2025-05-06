@@ -40,6 +40,7 @@ const handleLogin = async () => {
       password: password.value
     };
     await authStore.login(credentials);
+    localStorage.setItem('user', JSON.stringify(credentials));
     navigateTo('/');
   } catch (error) {
     console.error('Login failed:', error);

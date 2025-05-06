@@ -43,7 +43,7 @@
       >
         <NuxtLink 
           v-if="isLoggedIn"
-          :to="`/profile/${authStore.user?.username}`"
+          :to="`/personal/${authStore.user?.username}`"
           class="block px-4 py-3 text-base text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           @click="toggleUserMenu"
         >
