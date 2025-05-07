@@ -54,8 +54,8 @@
 import { useAuthStore } from '~/store/auth';
 import MainLayout from '~/components/Layout/MainLayout.vue';
 const authStore = useAuthStore();
-const route = useRoute()
-console.log(authStore.user)
+const route = useRoute();
+
 const userInitials = computed(() => {
   if (!authStore.user?.name) return '';
   const names = authStore.user.name.split(' ');
