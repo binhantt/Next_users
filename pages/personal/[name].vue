@@ -27,9 +27,24 @@
               <div class="space-y-4">
                 <div>
                   <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                  <p class="text-gray-800 dark:text-gray-200">{{ authStore.user?.email }}</p>
+                  <p class="text-gray-800 dark:text-gray-200">{{ authStore.user?.data.user.email }}</p>
                 </div>
-                <!-- Thêm các thông tin khác nếu cần -->
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Số điện thoại</p>
+                  <p class="text-gray-800 dark:text-gray-200">{{ authStore.user?.data.user.phone }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Địa chỉ</p>
+                  <p class="text-gray-800 dark:text-gray-200">{{ authStore.user?.data.user.address }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Số dư tài khoản</p>
+                  <p class="text-gray-800 dark:text-gray-200">{{ authStore.user?.data.user.balance }} VNĐ</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Ngày tạo tài khoản</p>
+                  <p class="text-gray-800 dark:text-gray-200">{{ new Date(authStore.user?.data.user.created_at).toLocaleDateString('vi-VN') }}</p>
+                </div>
               </div>
             </div>
 
@@ -55,7 +70,7 @@ import { useAuthStore } from '~/store/auth';
 import MainLayout from '~/components/Layout/MainLayout.vue';
 const authStore = useAuthStore();
 const route = useRoute();
-
+console.log(authStore.user.data.user)
 const userInitials = computed(() => {
   if (!authStore.user?.name) return '';
   const names = authStore.user.name.split(' ');

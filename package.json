@@ -14,7 +14,7 @@
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@pinia/nuxt": "^0.11.0",
     "@reduxjs/toolkit": "^2.7.0",
-    "nuxt": "^3.16.2",
+    "nuxt": "^3.17.2",
     "pina": "^0.20.2204228",
     "pinia": "^3.0.2",
     "react-redux": "^9.2.0",
