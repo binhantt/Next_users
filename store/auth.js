@@ -66,16 +66,11 @@ export const useAuthStore = defineStore('auth', {
 
         const responseData = await response.json()
         const { data } = responseData
-         console.log('Login response:', responseData) // Log the entire response for debugging
-        // Chỉ lưu sau khi đã xác nhận response hợp lệ
         this.user = data.user
         this.isAuthenticated = true
         this.token = data.token
         
-        if (isClient) {
-          localStorage.setItem('authToken', data.token)
-          localStorage.setItem('user', JSON.stringify(data.user))
-        }
+      
         return responseData
       } catch (error) {
         console.error('Login error:', error)

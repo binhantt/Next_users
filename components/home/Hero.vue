@@ -12,6 +12,7 @@
             :src="slide.image_url"
             :alt="slide.title"
             class="w-full h-full object-cover"
+            
           />
           <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
         </div>
@@ -63,21 +64,22 @@ const productStore = useProductIntroStore()
 onMounted(async () => {
   await productStore.fetchProductIntro()
 })
-
+ console.log(productStore.products)
 const slides = computed(() => {
-  if (!productStore.products || !Array.isArray(productStore.products)) {
+  if (!productStore.products?.items || !Array.isArray(productStore.products.items)) {
     return []
   }
-  return productStore.products.map(product => ({
-    image_url: product?.image_url || '',
-    title: product?.title || 'New Arrivals Big Sale',
-    subtitle: product?.subtitle || '', 
-    button1_text: product?.button1_text || 'Shop Now',
-    button1_link: product?.button1_link || '/products',
-    button2_text: product?.button2_text || 'Xem Thêm',
-    button2_link: product?.button2_link || '/promotions'
+  return productStore.products.items.map(product => ({
+    image_url: product.image_url,
+    title: product.title,
+    subtitle: product.subtitle, 
+    button1_text: product.button1_text,
+    button1_link: product.button1_link,
+    button2_text: product.button2_text,
+    button2_link: product.button2_link
   }))
 })
+console.log(slides.value) 
 </script>
 
 <style scoped>
