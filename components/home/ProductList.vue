@@ -16,7 +16,7 @@
         >
           <div class="relative overflow-hidden">
             <img 
-              :src="product.image"  
+              :src="product.main_image_url"  
               :alt="product.name" 
               class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
             />
@@ -26,12 +26,15 @@
             <h3 class="font-bold text-lg mb-2 text-white group-hover:text-indigo-400 transition-colors duration-300">
               {{ product.name }}
             </h3>
-            <p class="text-gray-300 dark:text-gray-400 mt-2">{{ product.description }}</p>
+   
             <div class="mt-4 flex justify-between items-center">
               <p class="text-indigo-400 font-bold text-2xl">
                 ₫{{ product.price }}
               </p>
-              <button class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25">
+              <button 
+                @click="viewProductDetail(product.name)"
+                class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+              >
                 Thêm vào giỏ
               </button>
             </div>
@@ -43,19 +46,20 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useProductStore } from '~/store/product';
+import { useRouter } from 'vue-router';
 
 const searchQuery = ref('');
-const products = ref([
-  {
-    id: 1,
-    name: 'Sản phẩm 1',
-    description: 'Mô tả sản phẩm 1',
-    price: '100.000',
-    image: '/images/product1.jpg'
-  },
-  // Thêm các sản phẩm khác vào đây
-]);
+const productStore = useProductStore();
+const products = ref([]);
+
+onMounted(async () => {
+  await productStore.fetchProducts();
+  products.value = productStore.items;
+  console.log(products.value);
+
+});
 
 const filteredProducts = computed(() => {
   if (!searchQuery.value) return products.value;
@@ -65,6 +69,35 @@ const filteredProducts = computed(() => {
     product.description.toLowerCase().includes(query)
   );
 });
+
+const router = useRouter();
+
+const viewProductDetail = (productname) => {
+  const product = products.value.find(p => p.name === productname);
+  if (product) {
+    try {
+      const viewedProducts = JSON.parse(localStorage.getItem('viewedProducts') || '[]');
+      
+      // Kiểm tra nếu sản phẩm đã tồn tại
+      const existingIndex = viewedProducts.findIndex(p => p.id === product.id);
+      
+      if (existingIndex >= 0) {
+        // Di chuyển sản phẩm lên đầu nếu đã tồn tại
+        viewedProducts.splice(existingIndex, 1);
+      }
+      
+      // Thêm sản phẩm mới vào đầu mảng
+      viewedProducts.unshift(product);
+      
+      // Giới hạn chỉ lưu 10 sản phẩm gần nhất
+      const limitedProducts = viewedProducts.slice(0, 10);
+      localStorage.setItem('viewedProducts', JSON.stringify(limitedProducts));
+    } catch (error) {
+      console.error('Lỗi khi lưu vào localStorage:', error);
+    }
+  }
+  router.push(`/products/${productname}`);
+};
 </script>
 
 <style scoped>

@@ -104,8 +104,11 @@
       "#tailwind-config": [
         "./tailwind/expose"
       ],
+      "#tailwind-config/*": [
+        "./tailwind/expose/*"
+      ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/dev"
       ],
       "#components": [
         "./components"
@@ -146,9 +149,9 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "../**/*",
-    "../.config/nuxt.*",
     "./nuxt.d.ts",
+    "../.config/nuxt.*",
+    "../**/*",
     "../node_modules/@nuxtjs/tailwindcss/runtime",
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime",
     "../node_modules/@pinia/nuxt/runtime",
@@ -161,7 +164,6 @@
   ],
   "exclude": [
     "../dist",
-    "../.data",
     "../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",

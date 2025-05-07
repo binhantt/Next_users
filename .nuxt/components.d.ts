@@ -38,15 +38,19 @@ interface _GlobalComponents {
     'HomeHotDeals': typeof import("../components/home/HotDeals.vue")['default']
     'HomeProductCategories': typeof import("../components/home/ProductCategories.vue")['default']
     'HomeProductList': typeof import("../components/home/ProductList.vue")['default']
+    'ProductsProductContent': typeof import("../components/products/ProductContent.vue")['default']
+    'ProductsProductError': typeof import("../components/products/ProductError.vue")['default']
+    'ProductsProductGallery': typeof import("../components/products/ProductGallery.vue")['default']
+    'ProductsProductInfo': typeof import("../components/products/ProductInfo.vue")['default']
+    'ProductsProductLoading': typeof import("../components/products/ProductLoading.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
-    'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
+    'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
     'ClientOnly': typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']
     'DevOnly': typeof import("../node_modules/nuxt/dist/app/components/dev-only")['default']
     'ServerPlaceholder': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'NuxtLink': typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']
     'NuxtLoadingIndicator': typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
-    'NuxtTime': typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
     'NuxtImg': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
     'NuxtPicture': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
@@ -88,15 +92,19 @@ interface _GlobalComponents {
     'LazyHomeHotDeals': LazyComponent<typeof import("../components/home/HotDeals.vue")['default']>
     'LazyHomeProductCategories': LazyComponent<typeof import("../components/home/ProductCategories.vue")['default']>
     'LazyHomeProductList': LazyComponent<typeof import("../components/home/ProductList.vue")['default']>
+    'LazyProductsProductContent': LazyComponent<typeof import("../components/products/ProductContent.vue")['default']>
+    'LazyProductsProductError': LazyComponent<typeof import("../components/products/ProductError.vue")['default']>
+    'LazyProductsProductGallery': LazyComponent<typeof import("../components/products/ProductGallery.vue")['default']>
+    'LazyProductsProductInfo': LazyComponent<typeof import("../components/products/ProductInfo.vue")['default']>
+    'LazyProductsProductLoading': LazyComponent<typeof import("../components/products/ProductLoading.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
-    'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
+    'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']>
     'LazyClientOnly': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']>
     'LazyDevOnly': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/dev-only")['default']>
     'LazyServerPlaceholder': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
     'LazyNuxtLink': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']>
     'LazyNuxtLoadingIndicator': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
-    'LazyNuxtTime': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
     'LazyNuxtRouteAnnouncer': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
     'LazyNuxtImg': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
     'LazyNuxtPicture': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
@@ -144,15 +152,19 @@ export const HomeHero: typeof import("../components/home/Hero.vue")['default']
 export const HomeHotDeals: typeof import("../components/home/HotDeals.vue")['default']
 export const HomeProductCategories: typeof import("../components/home/ProductCategories.vue")['default']
 export const HomeProductList: typeof import("../components/home/ProductList.vue")['default']
+export const ProductsProductContent: typeof import("../components/products/ProductContent.vue")['default']
+export const ProductsProductError: typeof import("../components/products/ProductError.vue")['default']
+export const ProductsProductGallery: typeof import("../components/products/ProductGallery.vue")['default']
+export const ProductsProductInfo: typeof import("../components/products/ProductInfo.vue")['default']
+export const ProductsProductLoading: typeof import("../components/products/ProductLoading.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
-export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
+export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
 export const ClientOnly: typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']
 export const DevOnly: typeof import("../node_modules/nuxt/dist/app/components/dev-only")['default']
 export const ServerPlaceholder: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const NuxtLink: typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']
 export const NuxtLoadingIndicator: typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
-export const NuxtTime: typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
 export const NuxtImg: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
 export const NuxtPicture: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
@@ -194,15 +206,19 @@ export const LazyHomeHero: LazyComponent<typeof import("../components/home/Hero.
 export const LazyHomeHotDeals: LazyComponent<typeof import("../components/home/HotDeals.vue")['default']>
 export const LazyHomeProductCategories: LazyComponent<typeof import("../components/home/ProductCategories.vue")['default']>
 export const LazyHomeProductList: LazyComponent<typeof import("../components/home/ProductList.vue")['default']>
+export const LazyProductsProductContent: LazyComponent<typeof import("../components/products/ProductContent.vue")['default']>
+export const LazyProductsProductError: LazyComponent<typeof import("../components/products/ProductError.vue")['default']>
+export const LazyProductsProductGallery: LazyComponent<typeof import("../components/products/ProductGallery.vue")['default']>
+export const LazyProductsProductInfo: LazyComponent<typeof import("../components/products/ProductInfo.vue")['default']>
+export const LazyProductsProductLoading: LazyComponent<typeof import("../components/products/ProductLoading.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
-export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
+export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']>
 export const LazyClientOnly: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/client-only")['default']>
 export const LazyDevOnly: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/dev-only")['default']>
 export const LazyServerPlaceholder: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyNuxtLink: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']>
 export const LazyNuxtLoadingIndicator: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
-export const LazyNuxtTime: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
 export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
 export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
 export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>

@@ -3,37 +3,36 @@ import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, createError, getRouterParam, getResponseStatusText } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/h3/dist/index.mjs';
-import { escapeHtml } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/vue/server-renderer/index.mjs';
-import { klona } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/defu/dist/defu.mjs';
-import destr, { destr as destr$1 } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/destr/dist/index.mjs';
-import { snakeCase } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/scule/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/unhead/dist/server.mjs';
-import { stringify, uneval } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/devalue/index.js';
-import { isVNode, toValue, isRef } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/vue/index.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/unhead/dist/plugins.mjs';
-import { createHooks } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/ohash/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, createError, getRouterParam, readBody, getQuery as getQuery$1, getResponseStatusText } from 'file://D:/Next_users/node_modules/h3/dist/index.mjs';
+import { escapeHtml } from 'file://D:/Next_users/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://D:/Next_users/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file://D:/Next_users/node_modules/ufo/dist/index.mjs';
+import destr from 'file://D:/Next_users/node_modules/destr/dist/index.mjs';
+import { renderToString } from 'file://D:/Next_users/node_modules/vue/server-renderer/index.mjs';
+import { klona } from 'file://D:/Next_users/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/Next_users/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file://D:/Next_users/node_modules/scule/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://D:/Next_users/node_modules/unhead/dist/server.mjs';
+import { stringify, uneval } from 'file://D:/Next_users/node_modules/devalue/index.js';
+import { isVNode, toValue, isRef } from 'file://D:/Next_users/node_modules/vue/index.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://D:/Next_users/node_modules/unhead/dist/plugins.mjs';
+import { createHooks } from 'file://D:/Next_users/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file://D:/Next_users/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://D:/Next_users/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://D:/Next_users/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/Next_users/node_modules/unstorage/drivers/fs.mjs';
+import { digest } from 'file://D:/Next_users/node_modules/ohash/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/Next_users/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/youch-core/build/index.js';
-import { Youch } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file://D:/Next_users/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file://D:/Next_users/node_modules/youch-core/build/index.js';
+import { Youch } from 'file://D:/Next_users/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file://D:/Next_users/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { getContext } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/unctx/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/errx/dist/index.js';
-import { walkResolver } from 'file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/node_modules/unhead/dist/utils.mjs';
+import { getContext } from 'file://D:/Next_users/node_modules/unctx/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file://D:/Next_users/node_modules/errx/dist/index.js';
 
-const serverAssets = [{"baseName":"server","dir":"C:/Users/thanh/OneDrive/Máy tính/Next_users/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/Next_users/server/assets"}];
 
 const assets = createStorage();
 
@@ -45,11 +44,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/thanh/OneDrive/Máy tính/Next_users","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/thanh/OneDrive/Máy tính/Next_users/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/thanh/OneDrive/Máy tính/Next_users/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/thanh/OneDrive/Máy tính/Next_users/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/thanh/OneDrive/Máy tính/Next_users/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:/Next_users","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:/Next_users/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:/Next_users/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:/Next_users/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:/Next_users/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1005,13 +1004,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _01YMl5KJI0XVGuiBLsTKFtqB4vEqDc7XM2jtZs67c = (function(nitro) {
+const _lJKOSc1924QudJHYup3Ws2sS8GZ7_j8YROkNfcX5P4w = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "C:/Users/thanh/OneDrive/Máy tính/Next_users";
+const rootDir = "D:/Next_users";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
@@ -1030,7 +1029,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _UAVjdtQH2m2gvU9wIEvpiZzRVHVr4j6Hh615s9ZTA = (nitroApp) => {
+const _Q2Idi0SYZ0fZ0dMqvP6vZz_X7V58NraG0NDlqNT5Kkc = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1100,334 +1099,15 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _01YMl5KJI0XVGuiBLsTKFtqB4vEqDc7XM2jtZs67c,
-_UAVjdtQH2m2gvU9wIEvpiZzRVHVr4j6Hh615s9ZTA
+  _lJKOSc1924QudJHYup3Ws2sS8GZ7_j8YROkNfcX5P4w,
+_Q2Idi0SYZ0fZ0dMqvP6vZz_X7V58NraG0NDlqNT5Kkc
 ];
 
-const VueResolver = (_, value) => {
-  return isRef(value) ? toValue(value) : value;
-};
-
-const headSymbol = "usehead";
-function vueInstall(head) {
-  const plugin = {
-    install(app) {
-      app.config.globalProperties.$unhead = head;
-      app.config.globalProperties.$head = head;
-      app.provide(headSymbol, head);
-    }
-  };
-  return plugin.install;
-}
-
-function resolveUnrefHeadInput(input) {
-  return walkResolver(input, VueResolver);
-}
-
-function createHead(options = {}) {
-  const head = createHead$1({
-    ...options,
-    propResolvers: [VueResolver]
-  });
-  head.install = vueInstall(head);
-  return head;
-}
-
-const unheadOptions = {
-  disableDefaults: true,
-  disableCapoSorting: false,
-  plugins: [DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin],
-};
-
-function createSSRContext(event) {
-  const ssrContext = {
-    url: event.path,
-    event,
-    runtimeConfig: useRuntimeConfig(event),
-    noSSR: event.context.nuxt?.noSSR || (false),
-    head: createHead(unheadOptions),
-    error: false,
-    nuxt: void 0,
-    /* NuxtApp */
-    payload: {},
-    _payloadReducers: /* @__PURE__ */ Object.create(null),
-    modules: /* @__PURE__ */ new Set()
-  };
-  return ssrContext;
-}
-function setSSRError(ssrContext, error) {
-  ssrContext.error = true;
-  ssrContext.payload = { error };
-  ssrContext.url = error.url;
-}
-
-function buildAssetsDir() {
-  return useRuntimeConfig().app.buildAssetsDir;
-}
-function buildAssetsURL(...path) {
-  return joinRelativeURL(publicAssetsURL(), buildAssetsDir(), ...path);
-}
-function publicAssetsURL(...path) {
-  const app = useRuntimeConfig().app;
-  const publicBase = app.cdnURL || app.baseURL;
-  return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
-}
-
-const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
-const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => import('file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
-const getClientManifest = () => import('file://C:/Users/thanh/OneDrive/M%C3%A1y%20t%C3%ADnh/Next_users/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getSSRRenderer = lazyCachedFunction(async () => {
-  const manifest = await getClientManifest();
-  if (!manifest) {
-    throw new Error("client.manifest is not available");
-  }
-  const createSSRApp = await getServerEntry();
-  if (!createSSRApp) {
-    throw new Error("Server bundle is not available");
-  }
-  const options = {
-    manifest,
-    renderToString: renderToString$1,
-    buildAssetsURL
-  };
-  const renderer = createRenderer(createSSRApp, options);
-  async function renderToString$1(input, context) {
-    const html = await renderToString(input, context);
-    if (process.env.NUXT_VITE_NODE_OPTIONS) {
-      renderer.rendererContext.updateManifest(await getClientManifest());
-    }
-    return APP_ROOT_OPEN_TAG + html + APP_ROOT_CLOSE_TAG;
-  }
-  return renderer;
-});
-const getSPARenderer = lazyCachedFunction(async () => {
-  const manifest = await getClientManifest();
-  const spaTemplate = await Promise.resolve().then(function () { return _virtual__spaTemplate; }).then((r) => r.template).catch(() => "").then((r) => {
-    {
-      return APP_ROOT_OPEN_TAG + r + APP_ROOT_CLOSE_TAG;
-    }
-  });
-  const options = {
-    manifest,
-    renderToString: () => spaTemplate,
-    buildAssetsURL
-  };
-  const renderer = createRenderer(() => () => {
-  }, options);
-  const result = await renderer.renderToString({});
-  const renderToString = (ssrContext) => {
-    const config = useRuntimeConfig(ssrContext.event);
-    ssrContext.modules ||= /* @__PURE__ */ new Set();
-    ssrContext.payload.serverRendered = false;
-    ssrContext.config = {
-      public: config.public,
-      app: config.app
-    };
-    return Promise.resolve(result);
-  };
-  return {
-    rendererContext: renderer.rendererContext,
-    renderToString
-  };
-});
-function lazyCachedFunction(fn) {
-  let res = null;
-  return () => {
-    if (res === null) {
-      res = fn().catch((err) => {
-        res = null;
-        throw err;
-      });
-    }
-    return res;
-  };
-}
-function getRenderer(ssrContext) {
-  return ssrContext.noSSR ? getSPARenderer() : getSSRRenderer();
-}
-const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
-
-async function renderInlineStyles(usedModules) {
-  const styleMap = await getSSRStyles();
-  const inlinedStyles = /* @__PURE__ */ new Set();
-  for (const mod of usedModules) {
-    if (mod in styleMap && styleMap[mod]) {
-      for (const style of await styleMap[mod]()) {
-        inlinedStyles.add(style);
-      }
-    }
-  }
-  return Array.from(inlinedStyles).map((style) => ({ innerHTML: style }));
-}
-
-const ROOT_NODE_REGEX = new RegExp(`^<${appRootTag}[^>]*>([\\s\\S]*)<\\/${appRootTag}>$`);
-function getServerComponentHTML(body) {
-  const match = body.match(ROOT_NODE_REGEX);
-  return match?.[1] || body;
-}
-const SSR_SLOT_TELEPORT_MARKER = /^uid=([^;]*);slot=(.*)$/;
-const SSR_CLIENT_TELEPORT_MARKER = /^uid=([^;]*);client=(.*)$/;
-const SSR_CLIENT_SLOT_MARKER = /^island-slot=([^;]*);(.*)$/;
-function getSlotIslandResponse(ssrContext) {
-  if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.slots).length) {
-    return void 0;
-  }
-  const response = {};
-  for (const [name, slot] of Object.entries(ssrContext.islandContext.slots)) {
-    response[name] = {
-      ...slot,
-      fallback: ssrContext.teleports?.[`island-fallback=${name}`]
-    };
-  }
-  return response;
-}
-function getClientIslandResponse(ssrContext) {
-  if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.components).length) {
-    return void 0;
-  }
-  const response = {};
-  for (const [clientUid, component] of Object.entries(ssrContext.islandContext.components)) {
-    const html = ssrContext.teleports?.[clientUid]?.replaceAll("<!--teleport start anchor-->", "") || "";
-    response[clientUid] = {
-      ...component,
-      html,
-      slots: getComponentSlotTeleport(clientUid, ssrContext.teleports ?? {})
-    };
-  }
-  return response;
-}
-function getComponentSlotTeleport(clientUid, teleports) {
-  const entries = Object.entries(teleports);
-  const slots = {};
-  for (const [key, value] of entries) {
-    const match = key.match(SSR_CLIENT_SLOT_MARKER);
-    if (match) {
-      const [, id, slot] = match;
-      if (!slot || clientUid !== id) {
-        continue;
-      }
-      slots[slot] = value;
-    }
-  }
-  return slots;
-}
-function replaceIslandTeleports(ssrContext, html) {
-  const { teleports, islandContext } = ssrContext;
-  if (islandContext || !teleports) {
-    return html;
-  }
-  for (const key in teleports) {
-    const matchClientComp = key.match(SSR_CLIENT_TELEPORT_MARKER);
-    if (matchClientComp) {
-      const [, uid, clientId] = matchClientComp;
-      if (!uid || !clientId) {
-        continue;
-      }
-      html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-component="${clientId}"[^>]*>`), (full) => {
-        return full + teleports[key];
-      });
-      continue;
-    }
-    const matchSlot = key.match(SSR_SLOT_TELEPORT_MARKER);
-    if (matchSlot) {
-      const [, uid, slot] = matchSlot;
-      if (!uid || !slot) {
-        continue;
-      }
-      html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-slot="${slot}"[^>]*>`), (full) => {
-        return full + teleports[key];
-      });
-    }
-  }
-  return html;
-}
-
-const ISLAND_SUFFIX_RE = /\.json(\?.*)?$/;
-const _SxA8c9 = defineEventHandler(async (event) => {
-  const nitroApp = useNitroApp();
-  setResponseHeaders(event, {
-    "content-type": "application/json;charset=utf-8",
-    "x-powered-by": "Nuxt"
-  });
-  const islandContext = await getIslandContext(event);
-  const ssrContext = {
-    ...createSSRContext(event),
-    islandContext,
-    noSSR: false,
-    url: islandContext.url
-  };
-  const renderer = await getSSRRenderer();
-  const renderResult = await renderer.renderToString(ssrContext).catch(async (error) => {
-    await ssrContext.nuxt?.hooks.callHook("app:error", error);
-    throw error;
-  });
-  const inlinedStyles = await renderInlineStyles(ssrContext.modules ?? []);
-  await ssrContext.nuxt?.hooks.callHook("app:rendered", { ssrContext, renderResult });
-  if (inlinedStyles.length) {
-    ssrContext.head.push({ style: inlinedStyles });
-  }
-  {
-    const { styles } = getRequestDependencies(ssrContext, renderer.rendererContext);
-    const link = [];
-    for (const resource of Object.values(styles)) {
-      if ("inline" in getQuery(resource.file)) {
-        continue;
-      }
-      if (resource.file.includes("scoped") && !resource.file.includes("pages/")) {
-        link.push({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file), crossorigin: "" });
-      }
-    }
-    if (link.length) {
-      ssrContext.head.push({ link }, { mode: "server" });
-    }
-  }
-  const islandHead = {};
-  for (const entry of ssrContext.head.entries.values()) {
-    for (const [key, value] of Object.entries(resolveUnrefHeadInput(entry.input))) {
-      const currentValue = islandHead[key];
-      if (Array.isArray(currentValue)) {
-        currentValue.push(...value);
-      }
-      islandHead[key] = value;
-    }
-  }
-  islandHead.link ||= [];
-  islandHead.style ||= [];
-  const islandResponse = {
-    id: islandContext.id,
-    head: islandHead,
-    html: getServerComponentHTML(renderResult.html),
-    components: getClientIslandResponse(ssrContext),
-    slots: getSlotIslandResponse(ssrContext)
-  };
-  await nitroApp.hooks.callHook("render:island", islandResponse, { event, islandContext });
-  return islandResponse;
-});
-async function getIslandContext(event) {
-  let url = event.path || "";
-  const componentParts = url.substring("/__nuxt_island".length + 1).replace(ISLAND_SUFFIX_RE, "").split("_");
-  const hashId = componentParts.length > 1 ? componentParts.pop() : void 0;
-  const componentName = componentParts.join("_");
-  const context = event.method === "GET" ? getQuery$1(event) : await readBody(event);
-  const ctx = {
-    url: "/",
-    ...context,
-    id: hashId,
-    name: componentName,
-    props: destr$1(context.props) || {},
-    slots: {},
-    components: {}
-  };
-  return ctx;
-}
-
-const _lazy_M3Cp_J = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_zwwYKY = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_M3Cp_J, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_M3Cp_J, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_zwwYKY, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_zwwYKY, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -1741,19 +1421,116 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const template = "";
+const VueResolver = (_, value) => {
+  return isRef(value) ? toValue(value) : value;
+};
 
-const _virtual__spaTemplate = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  template: template
+const headSymbol = "usehead";
+function vueInstall(head) {
+  const plugin = {
+    install(app) {
+      app.config.globalProperties.$unhead = head;
+      app.config.globalProperties.$head = head;
+      app.provide(headSymbol, head);
+    }
+  };
+  return plugin.install;
+}
+
+function createHead(options = {}) {
+  const head = createHead$1({
+    ...options,
+    propResolvers: [VueResolver]
+  });
+  head.install = vueInstall(head);
+  return head;
+}
+
+function buildAssetsDir() {
+  return useRuntimeConfig().app.buildAssetsDir;
+}
+function buildAssetsURL(...path) {
+  return joinRelativeURL(publicAssetsURL(), buildAssetsDir(), ...path);
+}
+function publicAssetsURL(...path) {
+  const app = useRuntimeConfig().app;
+  const publicBase = app.cdnURL || app.baseURL;
+  return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
+}
+
+const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
+const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
+const getServerEntry = () => import('file://D:/Next_users/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://D:/Next_users/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getSSRRenderer = lazyCachedFunction(async () => {
+  const manifest = await getClientManifest();
+  if (!manifest) {
+    throw new Error("client.manifest is not available");
+  }
+  const createSSRApp = await getServerEntry();
+  if (!createSSRApp) {
+    throw new Error("Server bundle is not available");
+  }
+  const options = {
+    manifest,
+    renderToString: renderToString$1,
+    buildAssetsURL
+  };
+  const renderer = createRenderer(createSSRApp, options);
+  async function renderToString$1(input, context) {
+    const html = await renderToString(input, context);
+    if (process.env.NUXT_VITE_NODE_OPTIONS) {
+      renderer.rendererContext.updateManifest(await getClientManifest());
+    }
+    return APP_ROOT_OPEN_TAG + html + APP_ROOT_CLOSE_TAG;
+  }
+  return renderer;
 });
-
-const styles = {};
-
-const styles$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: styles
+const getSPARenderer = lazyCachedFunction(async () => {
+  const manifest = await getClientManifest();
+  const spaTemplate = await Promise.resolve().then(function () { return _virtual__spaTemplate; }).then((r) => r.template).catch(() => "").then((r) => {
+    {
+      return APP_ROOT_OPEN_TAG + r + APP_ROOT_CLOSE_TAG;
+    }
+  });
+  const options = {
+    manifest,
+    renderToString: () => spaTemplate,
+    buildAssetsURL
+  };
+  const renderer = createRenderer(() => () => {
+  }, options);
+  const result = await renderer.renderToString({});
+  const renderToString = (ssrContext) => {
+    const config = useRuntimeConfig(ssrContext.event);
+    ssrContext.modules ||= /* @__PURE__ */ new Set();
+    ssrContext.payload.serverRendered = false;
+    ssrContext.config = {
+      public: config.public,
+      app: config.app
+    };
+    return Promise.resolve(result);
+  };
+  return {
+    rendererContext: renderer.rendererContext,
+    renderToString
+  };
 });
+function lazyCachedFunction(fn) {
+  let res = null;
+  return () => {
+    if (res === null) {
+      res = fn().catch((err) => {
+        res = null;
+        throw err;
+      });
+    }
+    return res;
+  };
+}
+function getRenderer(ssrContext) {
+  return ssrContext.noSSR ? getSPARenderer() : getSSRRenderer();
+}
 
 function renderPayloadResponse(ssrContext) {
   return {
@@ -1796,6 +1573,67 @@ function splitPayload(ssrContext) {
   };
 }
 
+const unheadOptions = {
+  disableDefaults: true,
+  disableCapoSorting: false,
+  plugins: [DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin],
+};
+
+function createSSRContext(event) {
+  const ssrContext = {
+    url: event.path,
+    event,
+    runtimeConfig: useRuntimeConfig(event),
+    noSSR: event.context.nuxt?.noSSR || (false),
+    head: createHead(unheadOptions),
+    error: false,
+    nuxt: void 0,
+    /* NuxtApp */
+    payload: {},
+    _payloadReducers: /* @__PURE__ */ Object.create(null),
+    modules: /* @__PURE__ */ new Set()
+  };
+  return ssrContext;
+}
+function setSSRError(ssrContext, error) {
+  ssrContext.error = true;
+  ssrContext.payload = { error };
+  ssrContext.url = error.url;
+}
+
+const SSR_SLOT_TELEPORT_MARKER = /^uid=([^;]*);slot=(.*)$/;
+const SSR_CLIENT_TELEPORT_MARKER = /^uid=([^;]*);client=(.*)$/;
+function replaceIslandTeleports(ssrContext, html) {
+  const { teleports, islandContext } = ssrContext;
+  if (islandContext || !teleports) {
+    return html;
+  }
+  for (const key in teleports) {
+    const matchClientComp = key.match(SSR_CLIENT_TELEPORT_MARKER);
+    if (matchClientComp) {
+      const [, uid, clientId] = matchClientComp;
+      if (!uid || !clientId) {
+        continue;
+      }
+      html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-component="${clientId}"[^>]*>`), (full) => {
+        return full + teleports[key];
+      });
+      continue;
+    }
+    const matchSlot = key.match(SSR_SLOT_TELEPORT_MARKER);
+    if (matchSlot) {
+      const [, uid, slot] = matchSlot;
+      if (!uid || !slot) {
+        continue;
+      }
+      html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-slot="${slot}"[^>]*>`), (full) => {
+        return full + teleports[key];
+      });
+    }
+  }
+  return html;
+}
+
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
 globalThis.__buildAssetsURL = buildAssetsURL;
@@ -1818,6 +1656,12 @@ const renderer = defineRenderHandler(async (event) => {
   ssrContext.head.push(appHead, headEntryOptions);
   if (ssrError) {
     ssrError.statusCode &&= Number.parseInt(ssrError.statusCode);
+    if (process.env.PARSE_ERROR_DATA && typeof ssrError.data === "string") {
+      try {
+        ssrError.data = destr(ssrError.data);
+      } catch {
+      }
+    }
     setSSRError(ssrContext, ssrError);
   }
   const isRenderingPayload = PAYLOAD_URL_RE.test(ssrContext.url);
@@ -1944,5 +1788,12 @@ function renderHTMLDocument(html) {
 const renderer$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: renderer
+});
+
+const template = "";
+
+const _virtual__spaTemplate = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  template: template
 });
 //# sourceMappingURL=index.mjs.map
