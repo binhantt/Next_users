@@ -39,7 +39,7 @@
 
 <script setup>
 import MainLayout from '~/components/Layout/MainLayout.vue';
-import { ref } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useProductStore } from '~/store/product';
 
@@ -54,56 +54,83 @@ const loading = ref(true);
 const error = ref(false);
 const images = ref([]);
 
+// Watch for route changes to update product data
+watch(() => route.params.name, async (newName) => {
+  if (newName) {
+    await fetchProduct();
+  }
+});
+
+// Fetch products if not already in store
+const initializeStore = async () => {
+  if (productStore.items.length === 0) {
+    loading.value = true;
+    try {
+      await productStore.fetchProducts();
+    } catch (err) {
+      console.error('Error fetching products:', err);
+    } finally {
+      loading.value = false;
+    }
+  }
+};
+
 // Lấy dữ liệu sản phẩm từ store
 const fetchProduct = async () => {
+  loading.value = true;
+  error.value = false;
+  
   try {
+    await initializeStore();
+    
     const foundProduct = productStore.items.find(item => item.name === route.params.name);
     
     if (foundProduct) {
       product.value = foundProduct;
       images.value = foundProduct.images?.map(img => img.image_url) || [];
       
-      // Lưu sản phẩm hiện tại vào localStorage
-      const viewedProducts = JSON.parse(localStorage.getItem('viewedProducts') || '[]');
-      const existingIndex = viewedProducts.findIndex(p => p.id === foundProduct.id);
-      
-      if (existingIndex >= 0) {
-        viewedProducts.splice(existingIndex, 1);
-      }
-      
-      viewedProducts.unshift(foundProduct);
-      localStorage.setItem('viewedProducts', JSON.stringify(viewedProducts.slice(0, 10)));
+      // Update viewed products in store
+      updateViewedProducts(foundProduct);
     } else {
       error.value = true;
     }
-    if (!product.value) throw new Error('Product not found');
   } catch (err) {
+    console.error('Error fetching product:', err);
     error.value = true;
   } finally {
     loading.value = false;
   }
 };
 
-onMounted(fetchProduct);
+// Update viewed products in localStorage
+const updateViewedProducts = (currentProduct) => {
+  try {
+    const viewedProducts = JSON.parse(localStorage.getItem('viewedProducts') || '[]');
+    const existingIndex = viewedProducts.findIndex(p => p.id === currentProduct.id);
+    
+    if (existingIndex >= 0) {
+      viewedProducts.splice(existingIndex, 1);
+    }
+    
+    viewedProducts.unshift(currentProduct);
+    localStorage.setItem('viewedProducts', JSON.stringify(viewedProducts.slice(0, 10)));
+  } catch (error) {
+    console.error('Error updating viewed products:', error);
+  }
+};
 
-// Add this computed property
+// Computed property for viewed products
 const viewedProducts = computed(() => {
   try {
-    return JSON.parse(localStorage.getItem('viewedProducts') || '[]');
+    const stored = localStorage.getItem('viewedProducts');
+    return stored ? JSON.parse(stored) : [];
   } catch (error) {
     console.error('Error parsing viewed products:', error);
     return [];
   }
 });
 
-// You can now use viewedProducts.value anywhere in your component
-// For example, to display recently viewed products:
-// <div v-if="viewedProducts.length > 0">
-//   <h3>Sản phẩm đã xem gần đây</h3>
-//   <div v-for="product in viewedProducts" :key="product.id">
-//     {{ product.name }}
-//   </div>
-// </div>
+onMounted(fetchProduct);
 </script>
 
 <style scoped>

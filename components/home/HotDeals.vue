@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-b from-gray-900 to-gray-800 py-16 px-4">
+  <div class="bg-gradient-to-b from-gray-900 to-gray-900 py-16 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 mb-4">
