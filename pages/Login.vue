@@ -39,10 +39,14 @@ const handleLogin = async () => {
       email: username.value,
       password: password.value
     };
-    const a =  await authStore.login(credentials);
-    await localStorage.setItem('user', JSON.stringify(a));
-
-    navigateTo('/');
+    const response = await authStore.login(credentials);
+    await localStorage.setItem('user', JSON.stringify(response));
+    
+    // Refresh the auth store data
+    await authStore.initialize();
+    
+    // Use navigateTo with replace option to prevent back navigation to login
+    await navigateTo('/', { replace: true });
   } catch (error) {
     console.error('Login failed:', error);
   }

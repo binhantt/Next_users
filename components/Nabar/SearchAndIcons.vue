@@ -95,8 +95,8 @@ const showUserMenu = ref(false);
 const isLoggedIn = computed(() => authStore.user !== null)
 
 const userInitials = computed(() => {
-  if (!authStore.user?.data.user.name) return ''
-  const names = authStore.user?.data.user.name.split(' ')
+  if (!authStore.user?.data?.user?.name) return ''
+  const names = authStore.user.data.user.name.split(' ')
   return names[0].charAt(0) + (names.length > 1 ? names[names.length - 1].charAt(0) : '')
 })
 
